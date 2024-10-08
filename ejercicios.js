@@ -1,3 +1,5 @@
+//// JS BASIC ALGORITHMS
+
 //* EJERCICIO 1: VARIABLES
 /*
 1.1
@@ -77,7 +79,6 @@ let i = c * m;
 console.log(i)  //! RESULTADO: 50 
 
 
-
 //* EJERCICIO 4: ARRAYS
 1.1
 const avengers = ["HULK", "SPIDERMAN","BLACK PANTHER"];
@@ -113,8 +114,6 @@ const MenosRickAndMortyCharacters = rickAndMortyCharacters.splice(1,1,);
 console.log(rickAndMortyCharacters);  //! RESULTADO: [ 'Rick', 'Jerry', 'Morty', 'Summer', 'Lapiz Lopez' ]
 
 
-
-
 //* EJERCICIO 5: CONDICIONALES
 
 const number1 = 10;
@@ -145,4 +144,193 @@ if ((number2 / 2 == number1), (number1 / 5 == number3)) {
     console.log ("number2 entre 2 es igual a number1 y number1 entre 5 es igual a number3");  //! RESULTADO: number2 entre 2 es igual a number1 y number1 entre 5 es igual a number3
 }
 
+
+//* EJERCICIO 6: BUCLES
+1.1 
+for (let i=0; i<=9; i++) {
+    console.log (i);  //! RESULTADO: 0 1 2 3 4 5 6 7 8 9 
+} 
+
+1.2  
+for (let i=0; i<=9; i++) {
+    
+        if (i %2 == 0) {
+            console.log (i)    //! RESULTADO : 0 2 4 6 8
+    }
+}
+
+1.3
+    let contandoOvejitas = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+    for (let i = 0; i < contandoOvejitas.length; i++) {
+        if (contandoOvejitas[i] <= 9) {
+            console.log(i, 'Intentando dormir 🐑');
+        } else {
+            console.log(i, 'Dormido!');     //! RESULTADO: 0 Intentando dormir � 1 Intentando dormir � 2 Intentando dormir � 3 Intentando dormir � 4 Intentando dormir � 
+        }                                   //! 5 Intentando dormir � 6 Intentando dormir � 7 Intentando dormir � 8 Intentando dormir � 9 Dormido!
+    }
+
+
+
+//// JS FUNCTIONS
+
+//* EJERCICIO 1: BUSCAR EL MÁXIMO
+// PRIMERA OPCIÓN
+function sum ( numberOne, numberTwo) {
+    return `El número mayor es el ${Math.max (1,2)}`;   
+}
+console.log (sum (1,2));   //! RESULTADO: El número mayor es el 2  
+
+// SEGUNDA OPCIÓN
+function sum (a , b) {
+if (a > b) {
+    return console.log (a)
+    }else{
+    return console.log (b)
+ }
+};
+sum (5,10);  //! RESULTADO: 5
+
+
+//* EJERCICIO 2: BUSCAR LA PALABRA MÁS LARGA
+const avengers = ['Hulk', 'Thor', 'IronMan', 'Captain A.', 'Spiderman', 'Captain M.'];
+function findLongestWord (e) {
+    return e.reduce ((acumulador, valorActual) => {
+        return valorActual.length > acumulador.length ? valorActual : acumulador;
+    }, "");    
+}
+console.log (findLongestWord (avengers));  //! RESULTADO: Captain A.
+
+
+//* EJERCICIO 3: CALCULAR LA SUMA
+const numbers = [1, 2, 3, 5, 45, 37, 58];
+let totalNumbers = numbers.reduce(
+    function (acumulador, valorActual) {
+        return acumulador + valorActual;
+    }, 0 
+)
+console.log(totalNumbers); //! RESULTADO: 151
+
+
+//* EJERCICIO 4: CALCULAR EL PROMEDIO
+const numbers = [12, 21, 38, 5, 45, 37, 6];
+let totalNumbers = numbers.reduce(
+        function (acumulador, valorActual) {
+            return acumulador + valorActual;
+        }, 0   
+    )
+console.log (totalNumbers);              //! RESULTADO: 164
+
+let promedio = totalNumbers /7; 
+console.log (promedio);                  //! RESULTADO: 23.428571428571427     
+console.log (promedio.toFixed ())        //! RESULTADO: 23 
+
+
+//* EJERCICIO 5: CALCULAR PROMEDIO DE STRINGS
+
+const mix = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub'];
+
+function sumaMix (array) {
+    const total = array.reduce ((acc, actual) => {
+        if (typeof actual == "number") {
+           return acc + actual;
+        } else if (typeof actual == "string") {
+            return acc + actual.length;
+        } else {
+            return acc;
+        }
+     }, 0);
+     return total;
+    }   
+        
+console.log ("SUMA MIX", sumaMix (mix));   //! RESULTADO: SUMA MIX 41
+
+
+//* EJERCICIO 6: VALORES ÚNICOS  
+
+const duplicates = [
+    'sushi',
+    'pizza',
+    'burger',
+    'potatoe',
+    'pasta',
+    'ice-cream',
+    'pizza',
+    'chicken',
+    'onion rings',
+    'pasta',
+    'soda'
+  ];
+  
+const comidasSinRepetir = duplicates.reduce(      
+    (acumulador, valorActual)=>{
+        if (!acumulador.includes(valorActual)){
+            acumulador.push (valorActual);
+        }
+        return acumulador;
+    }, []
+)
+console.log (comidasSinRepetir);   //! RESULTADO: ['sushi', 'pizza', 'burger', 'potatoe', 'pasta', 'ice-cream', 'chicken', 'onion rings', 'soda']
+
+
+//* EJERCICIO 7: 
+//Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - comprueba si existe el elemento, 
+//en caso que existan nos devuelve un true y la posición de dicho elemento y por la contra un false. Puedes usar este array para probar tu función:
+
+const nameFinder = [
+  'Peter',
+  'Steve',
+  'Tony',
+  'Natasha',
+  'Clint',
+  'Logan',
+  'Xabier',
+  'Bruce',
+  'Peggy',
+  'Jessica',
+  'Marc'
+];
+
+function finderName (e, name) {
+    for (let i = 0; i < e.length; i++) {
+        if (e[i] === name) {
+            return { inArray: true, position: i};
+            }
+        }      
+    return { inArray: false}
+}
+
+console.log (finderName (nameFinder, "Uma"));  //! RESULTADO: { inArray: false }
+console.log (finderName (nameFinder, "Marc"));  //! RESULTADO: { inArray: true, position: 10 }
 */
+
+//* EJERCICIO 8:
+
+//Crea una función que nos devuelva el número de veces que se repite cada una de las palabras que lo conforma.  
+//Puedes usar este array para probar tu función:
+
+
+const counterWords = [
+  'code',
+  'repeat',
+  'eat',
+  'sleep',
+  'code',
+  'enjoy',
+  'sleep',
+  'code',
+  'enjoy',
+  'upgrade',
+  'code'
+];
+function repeatCounter(e) {
+    const contador = {};
+        e.forEach (palabra => {
+            contador [palabra] = (contador [palabra] || 0) + 1;
+        });
+    return contador;
+}
+
+console.log (repeatCounter(counterWords));  //! RESULTADO: { code: 4, repeat: 1, eat: 1, sleep: 2, enjoy: 2, upgrade: 1 }
+
+
