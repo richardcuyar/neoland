@@ -273,9 +273,7 @@ const comidasSinRepetir = duplicates.reduce(
 console.log (comidasSinRepetir);   //! RESULTADO: ['sushi', 'pizza', 'burger', 'potatoe', 'pasta', 'ice-cream', 'chicken', 'onion rings', 'soda']
 
 
-//* EJERCICIO 7: 
-//Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - comprueba si existe el elemento, 
-//en caso que existan nos devuelve un true y la posición de dicho elemento y por la contra un false. Puedes usar este array para probar tu función:
+//* EJERCICIO 7: BUSCADOR DE NOMBRES
 
 const nameFinder = [
   'Peter',
@@ -302,13 +300,9 @@ function finderName (e, name) {
 
 console.log (finderName (nameFinder, "Uma"));  //! RESULTADO: { inArray: false }
 console.log (finderName (nameFinder, "Marc"));  //! RESULTADO: { inArray: true, position: 10 }
-*/
 
-//* EJERCICIO 8:
 
-//Crea una función que nos devuelva el número de veces que se repite cada una de las palabras que lo conforma.  
-//Puedes usar este array para probar tu función:
-
+//* EJERCICIO 8: CONTADOR DE REPETICIONES
 
 const counterWords = [
   'code',
@@ -334,3 +328,161 @@ function repeatCounter(e) {
 console.log (repeatCounter(counterWords));  //! RESULTADO: { code: 4, repeat: 1, eat: 1, sleep: 2, enjoy: 2, upgrade: 1 }
 
 
+//// JS LOOPS
+
+//* EJERCICIO 1: USA INCLUDES
+
+const products = ['Camiseta de Pokemon', 'Pantalón coquinero', 'Gorra de gansta', 'Camiseta de Basket', 'Cinrurón de Orión', 'AC/DC Camiseta']
+ 
+let prendasConCamiseta = products.filter (e=> e.includes ("Camiseta"));
+console.log (prendasConCamiseta);  //! RESULTADO: [ 'Camiseta de Pokemon', 'Camiseta de Basket', 'AC/DC Camiseta' ] 
+
+
+//* EJERCICIO 2: CONDICIONALES AVANZADOS
+
+const alumns = [
+    {name: 'Pepe Viruela', T1: false, T2: false, T3: true}, 
+		{name: 'Lucia Aranda', T1: true, T2: false, T3: true},
+		{name: 'Juan Miranda', T1: false, T2: true, T3: true},
+		{name: 'Alfredo Blanco', T1: false, T2: false, T3: false},
+		{name: 'Raquel Benito', T1: true, T2: true, T3: true}
+];
+
+for (const alumn of alumns) {
+    if (alumn.T1 + alumn.T2 + alumn.T3 >= 2) {
+        alumn.isApproved = true;
+    } else {
+        alumn.isApproved = false;
+    }
+}
+
+console.log(alumns); //! RESULTADO: 
+                    //! [
+                    //! {
+                    //!    name: 'Pepe Viruela',
+                    //!    T1: false,
+                    //!    T2: false,
+                    //!    T3: true,
+                    //!    isApproved: false
+                    //!  },
+                    //!  {
+                    //!    name: 'Lucia Aranda',
+                    //!    T1: true,
+                    //!    T2: false,
+                    //!    T3: true,
+                    //!    isApproved: true
+                    //!  },
+                    //!  {
+                    //!    name: 'Juan Miranda',
+                    //!    T1: false,
+                    //!    T2: true,
+                    //!    T3: true,
+                    //!    isApproved: true
+                    //!  },
+                    //!  {
+                    //!    name: 'Alfredo Blanco',
+                    //!    T1: false,
+                    //!    T2: false,
+                    //!    T3: false,
+                    //!    isApproved: false
+                    //!  },
+                    //!  {
+                    //!    name: 'Raquel Benito',
+                    //!    T1: true,
+                    //!    T2: true,
+                    //!    T3: true,
+                    //!    isApproved: true
+                    //!  }
+                    //! ]
+
+
+// otra manera de realizarlo:
+
+alumns.forEach((alumn) => {
+  // Contar trimestres aprobados (donde el valor es true)
+  const approvedCount = [alumn.T1, alumn.T2, alumn.T3].filter(trimestre => trimestre).length;
+  
+  // Añadir propiedad isApproved según el número de aprobados
+  alumn.isApproved = approvedCount >= 2;
+});
+
+console.log(alumns);
+
+
+//* EJERCICIO 3: PROBANDO FOR...OF
+
+const placesToTravel = ['Japon', 'Venecia', 'Murcia', 'Santander', 'Filipinas', 'Madagascar']
+
+for (let destinos of placesToTravel) {
+console.log (destinos);
+}                                       //! RESULTADO: Japon Venecia Murcia Santander Filipinas Madagascar
+
+
+//* EJERCICIO 4: PROBANDO FOR...IN
+
+const alien = {
+    name: 'Wormuck',
+    race: 'Cucusumusu',
+    planet: 'Eden',
+    weight: '259kg'
+}
+
+for (const datos in alien) {
+    console.log (alien[datos]);
+    }                               //! RESULTADO: Wormuck Cucusumusu Eden 259kg
+
+
+//* EJERCICIO 5: PROBANDO FOR
+
+const placesToTravel = [{id: 5, name: 'Japan'}, {id: 11, name: 'Venecia'}, {id: 23, name: 'Murcia'}, {id: 40, name: 'Santander'}, {id: 44, name: 'Filipinas'}, {id: 59, name: 'Madagascar'}]
+
+for (let i = placesToTravel.length - 1; i >= 0; i--) {
+    if (placesToTravel[i].id === 11 || placesToTravel[i].id === 40) {
+      placesToTravel.splice(i, 1); 
+    }
+  }
+  
+  console.log(placesToTravel);  //! RESULTADO: [{ id: 5, name: 'Japan' },{ id: 23, name: 'Murcia' },{ id: 44, name: 'Filipinas' },{ id: 59, name: 'Madagascar' }] 
+
+
+  //* EJERCICIO 6: MIXED FOR... OF E INCLUDES
+
+  const toys = [
+    {id: 5, name: 'Buzz MyYear'}, 
+    {id: 11, name: 'Action Woman'}, 
+    {id: 23, name: 'Barbie Man'}, 
+    {id: 40, name: 'El gato con Guantes'},
+    {id: 40, name: 'El gato felix'}
+    ]
+
+    const toysSinGato = [];
+
+for (const juguete of toys) {
+  if (!juguete.name.includes('gato')) {
+    toysSinGato.push(juguete);
+  }
+}
+console.log(toysSinGato);  //! RESULTADO: [{ id: 5, name: 'Buzz MyYear' },{ id: 11, name: 'Action Woman' },{ id: 23, name: 'Barbie Man' }]
+console.log(toysSinGato.includes ("gato"));  //!RESULTADO: FALSE
+
+*/
+
+//* EJERCICIO 7: FOR... OF AVANZADO
+
+// Usa un bucle for...of para recorrer todos los juguetes y añade los que tengan más de 15 ventas (sellCount) al array popularToys. Imprimelo por consola.. Puedes usar este array:
+
+const popularToys = [];
+const toys = [
+	{id: 5, name: 'Buzz MyYear', sellCount: 10}, 
+	{id: 11, name: 'Action Woman', sellCount: 24}, 
+	{id: 23, name: 'Barbie Man', sellCount: 15}, 
+	{id: 40, name: 'El gato con Guantes', sellCount: 8},
+	{id: 40, name: 'El gato felix', sellCount: 35}
+]
+
+for (const bestSeller of toys) {
+    if (bestSeller.sellCount > 15) {;
+    popularToys.push(bestSeller);
+}
+}
+    console.log(popularToys) //! RESULTADO: [{ id: 11, name: 'Action Woman', sellCount: 24 },{ id: 40, name: 'El gato felix', sellCount: 35 }]
