@@ -465,11 +465,8 @@ for (const juguete of toys) {
 console.log(toysSinGato);  //! RESULTADO: [{ id: 5, name: 'Buzz MyYear' },{ id: 11, name: 'Action Woman' },{ id: 23, name: 'Barbie Man' }]
 console.log(toysSinGato.includes ("gato"));  //!RESULTADO: FALSE
 
-*/
 
 //* EJERCICIO 7: FOR... OF AVANZADO
-
-// Usa un bucle for...of para recorrer todos los juguetes y añade los que tengan más de 15 ventas (sellCount) al array popularToys. Imprimelo por consola.. Puedes usar este array:
 
 const popularToys = [];
 const toys = [
@@ -483,6 +480,8 @@ const toys = [
 for (const bestSeller of toys) {
     if (bestSeller.sellCount > 15) {;
     popularToys.push(bestSeller);
-}
+    }
 }
     console.log(popularToys) //! RESULTADO: [{ id: 11, name: 'Action Woman', sellCount: 24 },{ id: 40, name: 'El gato felix', sellCount: 35 }]
+
+    */
