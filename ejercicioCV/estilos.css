@@ -1,0 +1,19 @@
+* {
+    font-family: "Open Sans", sans-serif;
+    border-left: 25px;
+  }
+
+
+* {
+    background-color: rgb(216, 208, 208);
+}
+
+h1 {
+    color:rgb(0, 0, 0) ;
+    text-underline-position:auto ;
+}
+
+
+table {
+    border-left: 25px;
+}

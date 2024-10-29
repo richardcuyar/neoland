@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
+
+p {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Bergdool';
+    src: url("/ruta/bergdool.woff2") format("woff2"), url("/ruta/bergdool.woff")
+         format("woff");
+     font-weight: normal;
+     font-style: normal;
+  }
+
+  h1,
+  h2 {
+    font-family: "Bergdool", sans-serif;
+  }
+
